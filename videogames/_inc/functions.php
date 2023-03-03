@@ -6,12 +6,9 @@ function processContactForm($name, $email, $message)
   $errors = validateContactForm($name, $email, $message);
 
   if (empty($errors)) {
-    // Envoyer le message de contact par e-mail ou le sauvegarder dans la base de données
-
-    // Enregistrer un message flash dans la session pour informer l'utilisateur que le message a été envoyé avec succès
+   
     $_SESSION['notice'] = "Vous serez contacté dans les plus brefs délais.";
 
-    // Rediriger l'utilisateur vers la page d'accueil
     header('Location: index.php');
     exit();
   }
@@ -23,12 +20,10 @@ function validateContactForm($name, $email, $message)
 {
   $errors = [];
 
-  // Vérifier le nom
   if (empty($name)) {
     $errors[] = "Le nom est obligatoire.";
   }
 
-  // Vérifier l'adresse e-mail
   if (empty($email)) {
     $errors[] = "L'adresse e-mail est obligatoire.";
   } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -52,7 +47,7 @@ function isLong($value) {
     return strlen($value) >= 10;
 }
 
-function connect_db() {
+function connect_to_db() {
     $host = 'localhost'; // remplacer par votre hôte de base de données
     $username = 'root'; // remplacer par votre nom d'utilisateur
     $password = ''; // remplacer par votre mot de passe
@@ -69,7 +64,7 @@ function connect_db() {
 
   // fonction pour retourner n jeux vidéo sélectionnés aléatoirement
 function get_random_games($n) {
-    $conn = connect_db();
+    $conn = connect_to_db();
     $sql = "SELECT * FROM game ORDER BY RAND() LIMIT $n";
     $result = $conn->query($sql);
     $games = array();
@@ -84,7 +79,7 @@ function get_random_games($n) {
   
   // fonction pour retourner tous les jeux vidéo présents dans la table game
   function get_all_games() {
-    $conn = connect_db();
+    $conn = connect_to_db();
     $sql = "SELECT * FROM game";
     $result = $conn->query($sql);
     $games = array();
@@ -99,7 +94,7 @@ function get_random_games($n) {
   
   // fonction pour retourner un jeu vidéo à l'aide de son identifiant
   function get_game_by_id($id) {
-    $conn = connect_db();
+    $conn = connect_to_db();
     $sql = "SELECT game.*, GROUP_CONCAT(category.id SEPARATOR ',') AS category_ids FROM game 
     LEFT JOIN game_category ON game.id = game_category.game_id 
     LEFT JOIN category ON game_category.category_id = category.id 
@@ -128,7 +123,7 @@ function get_random_games($n) {
   }
 
   function get_admin_by_email($email) {
-    $conn = connect_db();
+    $conn = connect_to_db();
     $email = $conn->real_escape_string($email);
     $sql = "SELECT * FROM admin WHERE email='$email'";
     $result = $conn->query($sql);
@@ -285,7 +280,7 @@ function isFloatInRange($input, $min, $max)
 
 function insertGame($data)
 {
-  $conn=connect_db();
+  $conn=connect_to_db();
 
   $title = $data['title'];
   $description = $data['description'];
@@ -373,7 +368,7 @@ function validateData($data) {
 
 function updateGame($data)
 {
-  $conn = connect_db();
+  $conn = connect_to_db();
 
   $id = $data['id'];
   $title = $data['title'];
@@ -428,7 +423,7 @@ function updateGame($data)
 
 function deleteGame($id)
 {
-  $conn = connect_db();
+  $conn = connect_to_db();
 
   // Disable autocommit to start a transaction
   $conn->autocommit(FALSE);
@@ -466,7 +461,7 @@ function deleteGame($id)
 
 
 function getAllEditors() {
-  $conn = connect_db();
+  $conn = connect_to_db();
   $sql = "SELECT * FROM editor";
   $result = $conn->query($sql);
   $editors = array();
@@ -480,7 +475,7 @@ function getAllEditors() {
 }
 
 function getAllCategories() {
-  $conn = connect_db();
+  $conn = connect_to_db();
   $sql = "SELECT * FROM category";
   $result = $conn->query($sql);
   $categories = [];

@@ -2,7 +2,7 @@
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
-if(!defined('THISBASEPATH')){ define('THISBASEPATH', 'C:\Users\HugoB\Documents\GitHub\phpModule\videogames'); }
+if(!defined('THISBASEPATH')){ define('THISBASEPATH', 'C:\Users\bapti\Desktop\h3-php\h3-php\videogames'); }
 require_once THISBASEPATH .'\_inc/functions.php';
 
 ?>
