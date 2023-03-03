@@ -25,7 +25,7 @@ $id = $_GET['id'];
 $game = get_game_by_id($id);
 
 if (!$game) {
-  echo '<h2>Le jeu vidéo que vous recherchez n\'existe pas</h2>';
+  echo "<h2>Le jeu vidéo que vous recherchez n'existe pas</h2>";
   exit();
 }
 ?>

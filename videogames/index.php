@@ -12,7 +12,6 @@
 
 $error = getSessionFlashMessage('error');
 
-// Afficher les messages d'erreur s'il y en a
 if ($error) {
     echo '<div class="alert alert-danger">' . $error . '</div>';
 }
@@ -28,10 +27,6 @@ if ($error) {
   ?>
 
 <h1>Bienvenue sur notre site web !</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor felis non velit blandit, eu aliquam purus lobortis. Duis sit amet ex risus. Fusce finibus blandit nibh, ac bibendum nulla gravida a. In scelerisque enim vitae lorem aliquet, eu bibendum sapien eleifend. Ut venenatis sapien vel mauris malesuada aliquet. Integer iaculis auctor orci, vel efficitur ipsum fringilla id.</p>
-
-  
-
 
 <div class="game-list">
     <?php foreach ($games as $game): ?>

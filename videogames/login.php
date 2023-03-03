@@ -7,14 +7,11 @@ require_once './_inc/header.php';
 require_once './_inc/nav.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  // Appeler la fonction processLoginForm pour traiter le formulaire
   $success = processLoginForm($_POST['email'], $_POST['password']);
-  // Si le formulaire a été validé avec succès, rediriger vers la page d'accueil
   if ($user !== null) {
     header('Location: admin/index.php');
     exit;
   } else {
-    // Si la connexion échoue, afficher un message d'erreur
     $error = "Identifiants incorrects";
   }
 }
@@ -23,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $error = getSessionFlashMessage('error');
 
-// Afficher les messages d'erreur s'il y en a
 if ($error) {
     echo '<div class="alert alert-danger">' . $error . '</div>';
 }

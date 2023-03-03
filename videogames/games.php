@@ -11,7 +11,6 @@ require_once './_inc/nav.php';
 
 $error = getSessionFlashMessage('error');
 
-// Afficher les messages d'erreur s'il y en a
 if ($error) {
     echo '<div class="alert alert-danger">' . $error . '</div>';
 }

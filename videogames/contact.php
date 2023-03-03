@@ -4,7 +4,6 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 require_once './_inc/functions.php';
 
-// Traiter le formulaire de contact
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $name = $_POST['name'] ?? '';
   $email = $_POST['email'] ?? '';
@@ -22,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $error = getSessionFlashMessage('error');
 
-// Afficher les messages d'erreur s'il y en a
 if ($error) {
     echo '<div class="alert alert-danger">' . $error . '</div>';
 }
@@ -32,7 +30,7 @@ if ($error) {
 <?php include('./_inc/nav.php'); ?>
 
 <main>
-  <h1>Contactez-nous</h1>
+  <h1>Nous contacter</h1>
   <form method="post">
     <label for="firstname">Prénom :</label>
     <input type="text" id="firstname" name="firstname" required>
@@ -53,12 +51,12 @@ if ($error) {
   </form>
 
   <?php if (isset($_POST['submit'])) : ?>
-    <h2>Récapitulatif :</h2>
-    <p>Prénom : <?= $firstname ?></p>
-    <p>Nom : <?= $lastname ?></p>
-    <p>E-mail : <?= $email ?></p>
-    <p>Sujet : <?= $subject ?></p>
-    <p>Message : <?= $message ?></p>
+    <h1>Page récapitulatif :</h1>
+    <p>Prénom : <?= $firstname?></p>
+    <p>Nom : <?= $lastname?></p>
+    <p>E-mail : <?= $email?></p>
+    <p>Sujet : <?= $subject?></p>
+    <p>Message : <?= $message?></p>
     <p>Date de soumission : <?= $submissionDate->format('d/m/Y H:i:s') ?></p>
   <?php endif; ?>
 </main>
