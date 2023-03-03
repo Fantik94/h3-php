@@ -1,8 +1,11 @@
-body{
-    width: 50rem;
-    margin-inline: auto;
+.logo{
+    max-width: 96px;
+    max-height: 96px;
 }
 
-.header{
-    background-color: lightblue;
+nav {
+    display: inline-flex;
+    flex-wrap: wrap;
+    background-color: white;
+    border-bottom: 2px solid #000000;
 }
