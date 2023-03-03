@@ -23,7 +23,7 @@ CREATE TABLE videogames.admin (
 );
 
 INSERT INTO videogames.admin (id, email, password)
-VALUES (1, 'admin@example.com', '$argon2i$v=19$m=16,t=2,p=1$WXAwMkU2OGtSRngwNDFaSQ$iGwjcHC+ZXzJZg5bqp9fIw');
+VALUES (1, 'test@test.fr', '$argon2i$v=19$m=16,t=2,p=1$WXAwMkU2OGtSRngwNDFaSQ$iGwjcHC+ZXzJZg5bqp9fIw');
 
 CREATE TABLE videogames.editor (
   id TINYINT PRIMARY KEY,

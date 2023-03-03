@@ -5,12 +5,12 @@ if (session_status() == PHP_SESSION_NONE) {
 
 require_once 'functions.php';
 ?>
-<nav class="navbar navbar-expand-lg bg-primary">
+<nav class="navbar navbar-expand-lg bg-dark">
 <div class="container d-flex justify-content-start m-0">
   <a href="/" class="navbar-brand"><img src="../img/logo.png" alt="Logo" class="logo"></a>
   <ul class="navbar-nav d-flex">
     <li  class="nav-item"><a href="/" class="nav-link text-light">Accueil</a></li>
-    <li  class="nav-item"><a href="/contact.php" class="nav-link text-light">Contact</a></li>
+    <li  class="nav-item"><a href="../contact.php" class="nav-link text-light">Contact</a></li>
     <li  class="nav-item"><a href="/games.php" class="nav-link text-light">Games</a></li>
     <?php
     // Tester si l'utilisateur est connecté
