@@ -1,0 +1,8 @@
+body{
+    width: 50rem;
+    margin-inline: auto;
+}
+
+.header{
+    background-color: lightblue;
+}

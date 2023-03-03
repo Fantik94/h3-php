@@ -1,0 +1,10 @@
+DROP DATABASE IF EXISTS project;
+
+CREATE DATABASE project;
+
+CREATE TABLE project.contact(
+    id TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(100) NOT NULL,
+    subject VARCHAR(255) NOT NULL,
+    message TEXT NOT NULL
+);

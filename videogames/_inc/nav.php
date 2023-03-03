@@ -1,6 +1,6 @@
 <nav>
-    <img src="/img/logo.jpg" href="/index.php">
-
-    <a href="/index.php">Acceuil</a>
+    <a href="/">Home</a>
+    <a href="/contact.php">Contact</a>
+    <a href="register.php">Register</a>
 
 </nav>
